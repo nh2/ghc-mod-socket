@@ -1,0 +1,41 @@
+name:                ghc-mod-socket
+version:             0.0.1.0
+synopsis:            Makes ghc-modi behave like hdevtools
+description:
+  Makes ghc-modi behave like hdevtools (persistent unix socket).
+
+  Daemonizing sources are taken from hdevtools.
+
+license:             MIT
+author:              Niklas Hambuechen <mail@nh2.me>
+maintainer:          Niklas Hambuechen <mail@nh2.me>
+copyright:           Niklas Hambuechen <mail@nh2.me>
+category:            Development
+homepage:            https://github.com/nh2/ghc-mod-socket
+bug-reports:         https://github.com/nh2/ghc-mod-socket/issues
+build-type:          Simple
+cabal-version:       >=1.8
+
+source-repository head
+  type:                git
+  location:            git://github.com/nh2/ghc-mod-socket.git
+
+
+executable ghc-mod-socket
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  other-modules:       Cabal
+                       Daemonize
+                       Server
+  build-depends:       base == 4.*,
+                       cmdargs,
+                       directory,
+                       filepath,
+                       ghc >= 7.2,
+                       ghc-paths,
+                       syb,
+                       network,
+                       time,
+                       process,
+                       unix
+  ghc-options:         -Wall
